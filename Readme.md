@@ -1,4 +1,7 @@
 # LabV7
+
+![topology](/assets/topology.png)
+
 #### install
 `bash -c "$(curl -sL https://get.containerlab.dev)"`
 #### deploy
