@@ -1,0 +1,44 @@
+name: rechnernetzeV7
+
+topology:
+  defaults:
+    kind: linux
+    image: rn-lab-sess-7
+    binds:
+        - ./scripts_remote:/scripts_remote
+        - ./output:/output
+    
+
+  nodes:
+    nodeA:
+      cmd: bash /scripts_remote/startup/startup_nodeA.sh
+
+    nodeB:
+      cmd: "bash /scripts_remote/startup/startup_nodeB.sh"
+
+    routerA:
+      cmd: "bash /scripts_remote/startup/startup_routerA.sh"
+
+    routerB:
+      cmd: "bash /scripts_remote/startup/startup_routerB.sh"
+
+    routerC:
+      cmd: "bash /scripts_remote/startup/startup_routerC.sh"
+
+    lan0:
+      cmd: "bash /scripts_remote/startup/startup_lan0.sh"
+
+    student:
+      binds:
+        - ./scripts:/scripts
+
+      
+  links:
+    - endpoints: ["nodeA:if0", "routerA:if0"]
+    - endpoints: ["routerA:if1", "routerB:if1"]
+    - endpoints: ["routerA:if2", "routerC:if1"]
+    - endpoints: ["routerC:if2", "routerB:if2"]
+
+    - endpoints: ["routerB:if0", "lan0:if0"]
+    - endpoints: ["routerC:if3", "lan0:if1"]
+    - endpoints: ["nodeB:if0", "lan0:if2"]
