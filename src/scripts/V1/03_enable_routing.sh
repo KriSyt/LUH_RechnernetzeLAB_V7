@@ -44,14 +44,14 @@ sshpass $SSHP_ARGS scp $SSH_ARGS root@routerB:/tmp/enableRouting_routerB.log  $T
 sshpass $SSHP_ARGS scp $SSH_ARGS root@routerC:/tmp/enableRouting_routerC.log  $TEMPDIR/enableRouting_routerC.log
 
 
-echo "NodeB" > $LOGFILE
-cat $TEMPDIR/enableRouting_nodeB.log > $LOGFILE
-echo "RouterA" > $LOGFILE
-cat $TEMPDIR/enableRouting_routerA.log > $LOGFILE
-echo "RouterB" > $LOGFILE
-cat $TEMPDIR/enableRouting_routerB.log > $LOGFILE
-echo "RouterC" > $LOGFILE
-cat $TEMPDIR/enableRouting_routerC.log > $LOGFILE
+echo "NodeB" >> $LOGFILE
+cat $TEMPDIR/enableRouting_nodeB.log >> $LOGFILE
+echo "RouterA" >> $LOGFILE
+cat $TEMPDIR/enableRouting_routerA.log >> $LOGFILE
+echo "RouterB" >> $LOGFILE
+cat $TEMPDIR/enableRouting_routerB.log >> $LOGFILE
+echo "RouterC" >> $LOGFILE
+cat $TEMPDIR/enableRouting_routerC.log >> $LOGFILE
 
 
 

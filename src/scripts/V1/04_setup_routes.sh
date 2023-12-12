@@ -72,7 +72,7 @@ cat $TMPDIR/setup_routes_nodeA_trace.log >> $LOGFILE
 echo -e "\nNodeB -> NodeA" >> $LOGFILE
 cat $TMPDIR/setup_routes_nodeB.log >> $LOGFILE
 
-echo -e "\n\nNodeA->NodeB Ping:" >> $LOGFILE
+echo -e "\n\nNodeB->NodeA Ping:" >> $LOGFILE
 cat $TMPDIR/setup_routes_nodeB_ping.log >> $LOGFILE
 
 echo -e "\n\nRoutes:" >> $LOGFILE

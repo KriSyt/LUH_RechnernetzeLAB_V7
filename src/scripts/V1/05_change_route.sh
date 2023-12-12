@@ -54,6 +54,7 @@ echo -e "\n\nNodeA->NodeB(192.168.2.1)" >> $LOGFILE
 cat $TMPDIR/change_route_nodeB_ping.log >> $LOGFILE
 
 echo -e "\n\nTCP-Dump RouterC IF3" >> $LOGFILE
+cat $TMPDIR/change_route_routerC_dump.log >> $LOGFILE
 
 echo -e "\n\nReconfigure old Routes" >> $LOGFILE
 cat $TMPDIR/change_route_routerA_del2.log >> $LOGFILE
