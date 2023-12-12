@@ -1,5 +1,5 @@
 #!/bin/bash
-ROUTERC_IF="if3"
+ROUTERC_IF="if2"
 
 SSHP_ARGS="-p password"
 SSH_ARGS="-o StrictHostKeyChecking=no -o ConnectTimeout=5 -o ConnectionAttempts=3"
@@ -30,7 +30,7 @@ sshpass $SSHP_ARGS ssh root@routerC sudo route add -net 192.168.1.0/24 gw 192.16
 sshpass $SSHP_ARGS ssh root@routerC sudo route add -net 192.168.2.0/24 gw 192.168.30.1
 
 echo "routes set -> Run Traceroute"
-sshpass $SSHP_ARGS ssh root@routerC "echo `` > /tmp/setup_routes_routerC_dump.log"
+
 sshpass $SSHP_ARGS ssh -f root@routerC "tcpdump -i $ROUTERC_IF > /tmp/setup_routes_routerC_dump.log &"
 
 sshpass $SSHP_ARGS ssh root@nodeA "traceroute 192.168.2.1 > /tmp/setup_routes_nodeA_trace.log"
