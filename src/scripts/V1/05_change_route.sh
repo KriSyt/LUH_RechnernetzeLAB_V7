@@ -21,7 +21,7 @@ echo "Ping NodeA -> NodeB   and  dump on routerC:if3"
 
 #### Ping and dump
 sshpass $SSHP_ARGS ssh -f root@routerC "tcpdump -U -i $ROUTERC_IF > /tmp/change_route_routerC_dump.log &"
-sshpass $SSHP_ARGS ssh root@nodeA "ping 192.168.2.1 -q -c4 > /tmp/change_route_nodeA_ping.log"
+sshpass $SSHP_ARGS ssh root@nodeB "ping 192.168.1.1 -q -c4 > /tmp/change_route_nodeB_ping.log"
 sshpass $SSHP_ARGS ssh root@routerC "pkill tcpdump"
 
 #### change to old route
@@ -41,7 +41,7 @@ sshpass $SSHP_ARGS scp $SSH_ARGS root@routerA:/tmp/change_route_routerA_del2.log
 sshpass $SSHP_ARGS scp $SSH_ARGS root@routerA:/tmp/change_route_routerA_add2.log $TMPDIR/change_route_routerA_add2.log
 sshpass $SSHP_ARGS scp $SSH_ARGS root@routerA:/tmp/change_route_routerA_flush2.log $TMPDIR/change_route_routerA_flush2.log
 #### NodeA
-sshpass $SSHP_ARGS scp $SSH_ARGS root@nodeA:/tmp/change_route_nodeA_ping.log $TMPDIR/change_route_nodeA_ping.log
+sshpass $SSHP_ARGS scp $SSH_ARGS root@nodeB:/tmp/change_route_nodeB_ping.log $TMPDIR/change_route_nodeB_ping.log
 #### RouterC
 sshpass $SSHP_ARGS scp $SSH_ARGS root@routerC:/tmp/change_route_routerC_dump.log $TMPDIR/change_route_routerC_dump.log
 
@@ -51,7 +51,7 @@ cat $TMPDIR/change_route_routerA_add1.log >> $LOGFILE
 cat $TMPDIR/change_route_routerA_flush1.log >> $LOGFILE
 
 echo -e "\n\nNodeA->NodeB(192.168.2.1)" >> $LOGFILE
-cat $TMPDIR/change_route_nodeA_ping.log >> $LOGFILE
+cat $TMPDIR/change_route_nodeB_ping.log >> $LOGFILE
 
 echo -e "\n\nTCP-Dump RouterC IF3" >> $LOGFILE
 

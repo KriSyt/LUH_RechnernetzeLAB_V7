@@ -11,7 +11,7 @@ TEMPDIR="/output/tmp"
 
 ### NodeA
 sshpass $SSHP_ARGS ssh root@nodeA sudo route add -net 192.168.2.0/24 gw 192.168.1.250
-sshpass $SSHP_ARGS ssh root@nodeA sudo route add -net 192.168.3.0/24 gw 192.168.1.250
+sshpass $SSHP_ARGS ssh root@nodeA sudo route add -net 192.168.30.0/24 gw 192.168.1.250
 
 ### NodeB
 sshpass $SSHP_ARGS ssh root@nodeB sudo route add -net 192.168.1.0/24 gw 192.168.2.250
@@ -31,10 +31,11 @@ sshpass $SSHP_ARGS ssh root@routerC sudo route add -net 192.168.2.0/24 gw 192.16
 
 echo "routes set -> Run Traceroute"
 
+##4 ping nodeB->nodeA
 sshpass $SSHP_ARGS ssh -f root@routerC "tcpdump -i $ROUTERC_IF > /tmp/setup_routes_routerC_dump.log &"
 
 sshpass $SSHP_ARGS ssh root@nodeA "traceroute 192.168.2.1 > /tmp/setup_routes_nodeA_trace.log"
-sshpass $SSHP_ARGS ssh root@nodeA "ping 192.168.2.1 -q -c4 > /tmp/setup_routes_nodeA_ping.log"
+sshpass $SSHP_ARGS ssh root@nodeB "ping 192.168.1.1 -q -c4 > /tmp/setup_routes_nodeB_ping.log"
 sshpass $SSHP_ARGS ssh root@nodeB "traceroute 192.168.1.1 > /tmp/setup_routes_nodeB.log"
 
 sshpass $SSHP_ARGS ssh root@routerC "pkill tcpdump"
@@ -54,7 +55,7 @@ echo "download logs"
 
 
 sshpass $SSHP_ARGS scp $SSH_ARGS root@nodeA:/tmp/setup_routes_nodeA_trace.log $TMPDIR/setup_routes_nodeA_trace.log
-sshpass $SSHP_ARGS scp $SSH_ARGS root@nodeA:/tmp/setup_routes_nodeA_ping.log $TMPDIR/setup_routes_nodeA_ping.log
+sshpass $SSHP_ARGS scp $SSH_ARGS root@nodeB:/tmp/setup_routes_nodeB_ping.log $TMPDIR/setup_routes_nodeB_ping.log
 sshpass $SSHP_ARGS scp $SSH_ARGS root@nodeB:/tmp/setup_routes_nodeB.log $TMPDIR/setup_routes_nodeB.log
 
 sshpass $SSHP_ARGS scp $SSH_ARGS root@nodeA:/tmp/setup_routes_table_nodeA.log $TMPDIR/setup_routes_table_nodeA.log
@@ -72,7 +73,7 @@ echo -e "\nNodeB -> NodeA" >> $LOGFILE
 cat $TMPDIR/setup_routes_nodeB.log >> $LOGFILE
 
 echo -e "\n\nNodeA->NodeB Ping:" >> $LOGFILE
-cat $TMPDIR/setup_routes_nodeA_ping.log >> $LOGFILE
+cat $TMPDIR/setup_routes_nodeB_ping.log >> $LOGFILE
 
 echo -e "\n\nRoutes:" >> $LOGFILE
 echo -e "\nNodeA:" >> $LOGFILE
