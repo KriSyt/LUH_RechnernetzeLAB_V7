@@ -4,7 +4,7 @@ ROUTERC_IF="if2"
 SSHP_ARGS="-p password"
 SSH_ARGS="-o StrictHostKeyChecking=no -o ConnectTimeout=5 -o ConnectionAttempts=3"
 
-LOGFILE="/output/04_setup_routes.log"
+LOGFILE="/output/V1_04_setup_routes.log"
 TEMPDIR="/output/tmp"
 
 > $LOGFILE

@@ -5,7 +5,7 @@
 SSHP_ARGS="-p password"
 SSH_ARGS="-o StrictHostKeyChecking=no -o ConnectTimeout=5 -o ConnectionAttempts=3"
 
-LOGFILE="/output/03_enable_routing.log"
+LOGFILE="/output/V1_03_enable_routing.log"
 TEMPDIR="/output/tmp"
 TOOLSDIR="/scripts/tools"
 

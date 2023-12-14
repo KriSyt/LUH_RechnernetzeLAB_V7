@@ -4,7 +4,7 @@ SSHP_ARGS="-p password"
 SSH_ARGS="-o StrictHostKeyChecking=no -o ConnectTimeout=5 -o ConnectionAttempts=3"
 
 
-LOGFILE="/output/02_ping.log"
+LOGFILE="/output/V1_02_ping.log"
 TMPDIR="/output/tmp"
 mkdir -p $TMPDIR
 

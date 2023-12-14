@@ -3,7 +3,7 @@
 SSHP_ARGS="-p password"
 SSH_ARGS="-o StrictHostKeyChecking=no -o ConnectTimeout=5 -o ConnectionAttempts=3"
 
-LOGFILE="/output/00_interfaces.log"
+LOGFILE="/output/V1_00_interfaces.log"
 TMPDIR="/output/tmp"
 mkdir -p $TMPDIR
 

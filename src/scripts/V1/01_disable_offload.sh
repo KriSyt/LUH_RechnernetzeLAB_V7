@@ -6,7 +6,7 @@ NOOF_SCRIPT="/scripts_remote/disable_so.sh"
 
 
 
-LOGFILE="/output/01_disable_offload.log"
+LOGFILE="/output/V1_01_disable_offload.log"
 TMPDIR="/output/tmp"
 mkdir -p $TMPDIR
 
