@@ -112,9 +112,9 @@ sleep 1
 
 
 #### Reverse Changes
-sshpass $SSHP_ARGS ssh $SSH_ARGS root@routerB "sudo route del -net 192.168.1.0/24 gw 192.168.2.251 > /tmp/$LOG_RouterB_CHANGEROUTE"
-sshpass $SSHP_ARGS ssh $SSH_ARGS root@routerB "sudo route del -net 192.168.1.0/24 gw 192.168.10.1 > /tmp/$LOG_RouterB_CHANGEROUTE"
-sshpass $SSHP_ARGS ssh $SSH_ARGS root@routerB "sudo route add -net 192.168.1.0/24 gw 192.168.10.1 > /tmp/$LOG_RouterB_CHANGEROUTE"
+sshpass $SSHP_ARGS ssh $SSH_ARGS root@routerB "sudo route del -net 192.168.1.0/24 gw 192.168.2.251 "
+sshpass $SSHP_ARGS ssh $SSH_ARGS root@routerB "sudo route del -net 192.168.1.0/24 gw 192.168.10.1 "
+sshpass $SSHP_ARGS ssh $SSH_ARGS root@routerB "sudo route add -net 192.168.1.0/24 gw 192.168.10.1"
 
 
 
