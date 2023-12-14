@@ -20,3 +20,8 @@ sudo containerlab destroy
 ```bash
 ssh root@<Student Node Ip> #password=password
 ```
+
+
+### Guide
+
+Execute all scripts (in order), change interfaces if required.
