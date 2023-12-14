@@ -10,6 +10,6 @@ HOST=$2
 IF=$3
 
 
-sshpass $SSHP_ARGS ssh -f $USER@$HOST "tcpdump -U -i $IF > /tmp/$HOST_$IF.log &"
+sshpass $SSHP_ARGS ssh -f $USER@$HOST "tcpdump -v -U -i $IF > /tmp/$HOST_$IF.log &"
 
 
